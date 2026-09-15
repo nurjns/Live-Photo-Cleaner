@@ -7,11 +7,10 @@ title Live Photo Cleaner
 set "SCRIPTDIR=%~dp0"
 set "EXIFTOOL=%SCRIPTDIR%exiftool.exe"
 
-if not exist "%EXIFTOOL%" (
-	echo [FEHLER] exiftool.exe wurde nicht in "%SCRIPTDIR%" gefunden.
-	echo Bitte exiftool.exe in denselben Ordner wie dieses Script legen.
-	pause
-	exit /b 1
+where exiftool >nul 2>&1
+if errorlevel 1 (
+	echo [FEHLER] ExifTool nicht gefunden^^! Bitte sicherstellen, dass ExifTool im PATH ist.
+	pause & exit /b 1
 )
 
 echo Durchsuche "%SCRIPTDIR%." nach Live-/Motion-Photos ...

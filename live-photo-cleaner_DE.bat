@@ -9,7 +9,7 @@ set "EXIFTOOL=%SCRIPTDIR%exiftool.exe"
 
 where exiftool >nul 2>&1
 if errorlevel 1 (
-	echo [FEHLER] ExifTool nicht gefunden^^! Bitte sicherstellen, dass ExifTool im PATH ist.
+	echo [FEHLER] ExifTool nicht gefunden^^! Bitte exiftool.exe in denselben Ordner wie dieses Script legen.
 	pause & exit /b 1
 )
 
